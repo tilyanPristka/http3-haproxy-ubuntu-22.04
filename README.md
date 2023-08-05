@@ -51,7 +51,7 @@ make -j $(nproc) TARGET=linux-glibc USE_LUA=1 USE_PCRE=1 USE_ZLIB=1 USE_SYSTEMD=
 make install-bin
 ```
 
-```
+```bash
 groupadd -g 188 haproxy
 useradd -g 188 -u 188 -d /var/lib/haproxy -s /sbin/nologin -c haproxy haproxy
 
@@ -65,7 +65,7 @@ chown -R haproxy:haproxy /var/lib/haproxy/
 ln -s /usr/local/sbin/haproxy /usr/sbin/haproxy
 ```
 
-```
+```bash
 nano /etc/systemd/system/haproxy.service
 ----------------------------------------------------------------------------------------------------------
 [Unit]
@@ -93,7 +93,7 @@ WantedBy=multi-user.target
 ----------------------------------------------------------------------------------------------------------
 ```
 
-```
+```bash
 nano /etc/haproxy/haproxy.cfg
 ----------------------------------------------------------------------------------------------------------
 global
@@ -196,6 +196,6 @@ backend www_prod
 ----------------------------------------------------------------------------------------------------------
 ```
 
-```
+```bash
 systemctl restart haproxy
 ```
